@@ -1,5 +1,20 @@
-<ul class="lista" *ngFor="let transf of transfs">
-  <li><strong>Data:</strong> {{transf?.data}}</li>
-  <li><strong>Valor:</strong> {{transf?.valor}}</li>
+
+<table class="tabela">
+  <thead class="tabela__cabecalho">
+    <th class="titulo">Data:</th>
+    <th class="titulo">Valor:</th>
+    <th class="titulo">Destino:</th>
+  </thead>
+  <tbody class="tabela__conteudo">
+    <tr class= "tabela__conteudo__linha" *ngFor="let transf of transfs">
+      <td>{{transf?.data | date:'short'}}</td>
+      <td>{{transf?.valor | currency}}</td>
+      <td>{{transf?.destino}}</td>
+    </tr>
+  </tbody>
+</table>
+<!-- <ul class="lista" >
+  <li><strong>Data:</strong> {{transf?.data | date:'short'}}</li>
+  <li><strong>Valor:</strong> {{transf?.valor | currency}}</li>
   <li><strong>Destino:</strong> {{transf?.destino}}</li>
-</ul>
+</ul> -->
