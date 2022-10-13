@@ -1,3 +1,5 @@
+import { Transferencia } from './../models/transferencia.model';
+import { TransfService } from './../services/transf.service';
 import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
@@ -12,15 +14,30 @@ export class NovaTransfComponent {
   valor: number = 50;
   destino: string = '0000-0';
 
+  constructor(private service: TransfService) {}
+
   transferir() {
     console.log('tranferencia realizada!');
-    this.aoTransferir.emit({
-        data: this.data,
-        valor: this.valor,
-        destino: this.destino
-      });
+    const valorEmitir: Transferencia = {
+      data: this.data,
+      valor: this.valor,
+      destino: this.destino
+    }
+    this.service.adicionar(valorEmitir)
+        .subscribe(
+          (resultado) => {
+          console.log('valor emitir', resultado);
+          this.limparCampos();
+        }, (erro) => {
+            console.error('erro', erro);
+        });
+    // this.aoTransferir.emit({
+    //     data: this.data,
+    //     valor: this.valor,
+    //     destino: this.destino
+    //   });
 
-    this.limparCampos();
+    // this.limparCampos();
   }
 
   limparCampos() {

@@ -9,13 +9,6 @@ import { TransfService } from './services/transf.service';
 export class AppComponent {
   title = 'bytebank';
 
-  constructor(private service: TransfService) {
-
-  }
-
-  transferir($event) {
-    this.service.adicionar($event);
-  }
-
+  constructor(private service: TransfService) {}
 
 }

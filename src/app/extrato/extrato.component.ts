@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Transferencia } from '../models/transferencia.model';
 import { TransfService } from '../services/transf.service';
 
 @Component({
@@ -14,7 +15,11 @@ export class ExtratoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.transfs = this.service.transfs;
+    //this.transfs = this.service.transfs;
+    this.service.todas().subscribe((transfsResult: Transferencia[]) => {
+      console.table(transfsResult);
+      this.transfs = transfsResult;
+    });
   }
 
 }
