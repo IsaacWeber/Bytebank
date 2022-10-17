@@ -1,6 +1,7 @@
 import { Transferencia } from './../models/transferencia.model';
 import { TransfService } from './../services/transf.service';
 import { Component, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nova-transf',
@@ -14,7 +15,7 @@ export class NovaTransfComponent {
   valor: number = 50;
   destino: string = '0000-0';
 
-  constructor(private service: TransfService) {}
+  constructor(private service: TransfService, private router: Router) {}
 
   transferir() {
     console.log('tranferencia realizada!');
@@ -28,16 +29,10 @@ export class NovaTransfComponent {
           (resultado) => {
           console.log('valor emitir', resultado);
           this.limparCampos();
+          this.router.navigateByUrl('extrato');
         }, (erro) => {
             console.error('erro', erro);
         });
-    // this.aoTransferir.emit({
-    //     data: this.data,
-    //     valor: this.valor,
-    //     destino: this.destino
-    //   });
-
-    // this.limparCampos();
   }
 
   limparCampos() {

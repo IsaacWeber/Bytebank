@@ -25,13 +25,6 @@ export class TransfService {
 
   adicionar(t: any): Observable<Transferencia> {
     t.data = new Date();
-
     return this.httpClient.post<Transferencia>(this.url, t);
-    // if(this.firstTime) { //replace placeholder
-    //   this.firstTime = false;
-    //   this.transfs[0] = t;
-    // }else {
-    //   this.transfs.push(t);
-    // }
   }
 }
