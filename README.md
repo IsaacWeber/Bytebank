@@ -1,4 +1,7 @@
-# Bytebank
+# Bytebank - Visão Geral 
+Aplicação que simula, de forma muito simples, um banco que faz transferencias e exibe os extratos.
+
+# Bytebank - Angular Description of this project
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.6.
 
